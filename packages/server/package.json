@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "serve": "ts-node-dev src/index.ts",
+    "build": "yarn build",
+    "lint": "yarn lint"
+  },
+  "dependencies": {
+    "@types/jest": "^26.0.23",
+    "ajv": "^8.5.0",
+    "axios": "^0.21.1",
+    "jest": "^27.0.1",
+    "ts-jest": "^27.0.1",
+    "ts-node-dev": "^1.1.6",
+    "tsc": "^2.0.3"
+  }
+}
