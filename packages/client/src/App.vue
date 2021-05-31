@@ -1,13 +1,13 @@
 <template>
-  <ion-menu side="start" menu-id="first" content-id="main">
+  <ion-menu side="start" menu-id="toolbar" content-id="main">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
+      <ion-toolbar>
+        <ion-title router-link="/home" @click="closeFirst()">Nanika Home</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Menu Item</ion-item>
+        <ion-item router-link="/cheer/editor" @click="closeFirst()">Cheer editor</ion-item>
         <ion-item>Menu Item</ion-item>
         <ion-item>Menu Item</ion-item>
         <ion-item>Menu Item</ion-item>
@@ -15,46 +15,11 @@
       </ion-list>
     </ion-content>
   </ion-menu>
-
-  <ion-menu side="start" menu-id="custom" class="my-custom-menu" content-id="main">
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Custom Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <ion-menu side="end" type="push" content-id="main">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>End Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
   <ion-router-outlet id="main"></ion-router-outlet>
 </template>
 <style>
 .my-custom-menu {
-  --width: 500px;
+  --width: 300px;
 }
 </style>
 
@@ -70,14 +35,14 @@ import {
   IonToolbar,
   menuController
 } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 
 export default defineComponent({
   components: {
     IonContent, 
     IonHeader, 
     IonItem, 
-    IonList, 
+    IonList,
     IonMenu, 
     IonRouterOutlet,
     IonTitle, 
@@ -85,15 +50,11 @@ export default defineComponent({
   },
   methods: {
     openFirst() {
-      menuController.enable(true, 'first');
-      menuController.open('first');
+      menuController.enable(true, 'toolbar');
+      menuController.open('toolbar');
     },
-    openEnd() {
-      menuController.open('end');
-    },
-    openCustom() {
-      menuController.enable(true, 'custom');
-      menuController.open('custom');
+    closeFirst(){
+      menuController.close("toolbar");
     }
   }
 });

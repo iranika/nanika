@@ -18,10 +18,15 @@
     "@capacitor/keyboard": "1.0.0",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
+    "@storybook/vue": "^6.2.9",
     "core-js": "^3.6.5",
+    "firebase": "^8.6.3",
+    "firebaseui": "^4.8.0",
     "vue": "^3.0.0-0",
     "vue-loader": "15.9.7",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "vuex": "^3.6.2",
+    "vuex-module-decorators": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
