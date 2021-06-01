@@ -13,9 +13,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/signin',
     component: ()=> import ("../views/SignIn.vue")
-  },  
+  },
   {
-    path: '/cheer/editor',
+    path: '/cheer/edit',
+    component: ()=> import ("../views/cheer/Editor.vue")
+  },
+  {
+    path: '/cheer/edit/:itemid',
+    component: ()=> import ("../views/cheer/Editor.vue")
+  },
+  {
+    path: '/cheer/:itemid/edit',
     component: ()=> import ("../views/cheer/Editor.vue")
   },
   {

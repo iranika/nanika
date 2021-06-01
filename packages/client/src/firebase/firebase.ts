@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-
+import { FirestoreSimple } from "@firestore-simple/web";
 import { Credentials } from './types/credentials'
 
 export const credentials: Credentials = {
@@ -20,5 +20,7 @@ if (!firebase.apps.length){
     firebase.initializeApp(credentials.config)
 }
 
+export const CheerRef = firebase.firestore().collection("cheer");
+export const firestoreSimple = new FirestoreSimple(firebase.firestore())
 
 export default firebase;

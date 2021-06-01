@@ -7,8 +7,8 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item router-link="/cheer/editor" @click="closeFirst()">Cheer editor</ion-item>
-        <ion-item>Menu Item</ion-item>
+        <ion-item router-link="/cheer/edit" @click="closeFirst()">Cheer editor</ion-item>
+        <ion-item router-link="/cheer/edit/7VgZ5AS5gpv4O8dhk7zW" @click="closeFirst()">edit cheer data</ion-item>
         <ion-item>Menu Item</ion-item>
         <ion-item>Menu Item</ion-item>
         <ion-item>Menu Item</ion-item>
