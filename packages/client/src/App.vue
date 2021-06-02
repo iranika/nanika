@@ -1,4 +1,5 @@
 <template>
+<ion-app>
   <ion-menu side="start" menu-id="toolbar" content-id="main">
     <ion-header>
       <ion-toolbar>
@@ -16,6 +17,7 @@
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
 </template>
 <style>
 .my-custom-menu {
@@ -33,7 +35,8 @@ import {
   IonRouterOutlet,
   IonTitle, 
   IonToolbar,
-  menuController
+  menuController,
+  IonApp
 } from '@ionic/vue';
 import { defineComponent, onMounted } from 'vue';
 
@@ -46,7 +49,8 @@ export default defineComponent({
     IonMenu, 
     IonRouterOutlet,
     IonTitle, 
-    IonToolbar
+    IonToolbar,
+    IonApp
   },
   methods: {
     openFirst() {

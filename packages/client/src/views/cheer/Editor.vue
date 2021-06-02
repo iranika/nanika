@@ -38,6 +38,8 @@
                 </ion-item>
               </ion-list>
             </div>
+            <!-- TODO: Saveボタンは編集可能でない場合に保存できないようにする -->
+            <ion-button>Save</ion-button>
           </ion-col>
           <ion-col>
             <div>{{state.cheers}}</div>
@@ -51,13 +53,14 @@
 
 
 <script lang="ts">
-import { IonContent, IonPage, IonTitle, } from '@ionic/vue';
+import { IonContent, IonPage, IonTitle, modalController, } from '@ionic/vue';
 import DefaultToolbar from '../../components/DefaultToolbar.vue';
 import ChatBox from "../../components/cheer/ChatBox.vue";
 import { onBeforeMount, onMounted, reactive } from 'vue';
 import { useRouter } from "vue-router";
 import { firestoreSimple, CheerRef } from "../../firebase/firebase";
 import { Cheer, Cheers } from '../../types/Cheer';
+import Editmodal from "./EditModal.vue";
 
 export default {
   name: 'Editor',
@@ -83,15 +86,30 @@ export default {
         state.cheers = doc ?? new Cheers();
       }
     })
-
+    /*
     const EditChatBox = (CheerJson: Cheer, i: number)=>{
       CheerJson.texts = ["Clear"]
       console.log(state.cheers)
     }
+    */
     return {
       state,
-      EditChatBox
+      //EditChatBox
     }
+  },
+  methods:{
+    async EditChatBox(cheer: Cheer, i: number){
+      const modal = await modalController
+        .create({
+          component: Editmodal,
+          cssClass: 'my-custom-class',
+          componentProps: {
+            title: 'Cheer Editor',
+            cheer: cheer
+          },
+        })
+      return modal.present();
+    } 
   },
   /*
   methods:{
@@ -102,7 +120,7 @@ export default {
     IonPage,
     IonTitle,
     DefaultToolbar,
-    ChatBox
+    ChatBox,
   }
 }
 </script>

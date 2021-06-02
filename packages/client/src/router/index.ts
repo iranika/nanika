@@ -27,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     component: ()=> import ("../views/cheer/Editor.vue")
   },
   {
+    path: '/cheer/list',
+    component: ()=> import ("../views/cheer/List.vue")
+  },
+
+  {
     path: '/folder/:id',
     component: () => import ('../views/Folder.vue')
   }

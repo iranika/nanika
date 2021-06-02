@@ -23,14 +23,14 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import firebase from "./firebase/firebase";
+//import firebase from "./firebase/firebase";
 import authStore, {authStoreKey} from './stores/auth';
 
 
 const app = createApp(App)
-  .use(IonicVue, {mode: 'md'})
-  .use(router)
-  .provide(authStoreKey, authStore());
+  .provide(authStoreKey, authStore())
+  .use(IonicVue)
+  .use(router);
   
 router.isReady().then(() => {
   app.mount('#app');

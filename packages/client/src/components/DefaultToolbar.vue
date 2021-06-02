@@ -6,6 +6,8 @@
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
       <ion-title>Nanika</ion-title>
+      
+      <ion-split-pane></ion-split-pane>
       <ion-avatar small slot="end" v-if="state.state.isLogin" @click="openActionSheet()">
         <img :src="state.state.photoURL">
       </ion-avatar>
